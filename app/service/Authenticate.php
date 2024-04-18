@@ -31,10 +31,10 @@ class Authenticate {
         return $userController->loginByToken();
     }
 
-
-
-
-
-
-
+    public function renewToken():JsonResponse
+    {
+        //1: Token existiert
+        //2: Token ist validiert
+        //3: wenn vadidiert generiere neues Token mit extra Zeit
+    }
 }

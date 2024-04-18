@@ -51,14 +51,6 @@ class UserController extends BaseController
 
     public function loginByToken():JsonResponse
     {
-        $token_in_header = $this->request->authorizationHeader;
-        
-        //step 1: check if token in header exists
-        if(!$token_in_header || strlen($token_in_header) < 30 )/**@phpstan-ignore-line */
-        {
-            return $this->response->forbidden('no token in header');
-        }
-        //step 2: validate Token
         $tokenClass = new Token($this->request);
         if(!$tokenClass->validate())
         {
@@ -66,5 +58,5 @@ class UserController extends BaseController
         }
         
         return $this->response->success($tokenClass->user_id);
-    }
+    }    
 }
