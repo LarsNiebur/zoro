@@ -1,0 +1,3 @@
+Table Schicht: 
+1: Run SQL Queris (Query string  = abfrage) 
+2: return objekt/objekten

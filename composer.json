@@ -1,0 +1,18 @@
+{
+    "require": {
+        "gemvc/library": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "App\\Controller\\": "app/controller/",
+            "App\\Core\\": "app/core/",
+            "App\\Model\\": "app/model/",
+            "App\\Service\\": "app/service/",
+            "App\\Table\\": "app/table/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10"
+    }
+}

@@ -1,0 +1,3 @@
+service layer: 
+1:bekommt request indirekt von index.php (von Bootrstrat class)
+2: Klassen in diesen Schicht sin Verantwürtlich für nur richtige Controller zu rufrn (natürlich weiterleitern  request zum Controller)

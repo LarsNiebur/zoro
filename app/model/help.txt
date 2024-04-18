@@ -1,0 +1,11 @@
+Model Schicht: 
+1: App Logik 
+2: retrun type ist immer objkts.
+3: model ruf immer Table Schicht
+
+
+V-Model oder Kobmbi Model: 
+Kombination Zwischen Modelen für Ein Komplex verfahren zu loosen
+
+Kiss Princip : Kieep Simplie Stupid
+Sepration of Concern Princiep (Prinzip): Trennung von Zustandigkeiten

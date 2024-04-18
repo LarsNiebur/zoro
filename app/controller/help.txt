@@ -1,0 +1,9 @@
+dieser Schicht ist verantwürtlich für : 
+1: Kontroll eingang Request (Anfrage)  ob alle inhalt für anfrage richtig ist.
+    z.B. Kontroller braucht post email , und dise schicht kontrillert ob 
+    1: post vorhanden ist und righige inhalt hat post.
+2: ruft Model. 
+
+3: immer controller return Json Response.
+
+Punkt: bitte lassen Sie immer Kontroller schicht eindeutig und einfach wir möglich.  
