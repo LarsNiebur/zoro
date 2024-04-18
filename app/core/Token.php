@@ -5,17 +5,17 @@ use GemLibrary\Helper\WebHelper;
 use GemLibrary\Http\GemRequest;
 use GemLibrary\Http\GemToken;
 use GemLibrary\Http\JsonResponse;
-
-/**
- * @function createToken(int $user_id):JsonResponse
- * @function validate():bool
- * @function renewToken():JsonResponse
- */
  
+/**
+ * @function createToken(int $user_id);
+ * @function verify():bool
+ * @function renewToken:JsonResponse
+ */
 class Token extends GemToken {
  
     private GemRequest $request;
     private JsonResponse $response;
+ 
     public function __construct(GemRequest $request)
     {
         parent::__construct($_ENV['TOKEN_SECRET'],"");
@@ -35,6 +35,11 @@ class Token extends GemToken {
         //In Production Uncomment following codes
         //$this->userAgent = $this->request->userMachine;
         //$this->ip = $this->request->remoteAddress;
+        $pureToken = $this->getPureTokenFromHeader();
+        if($pureToken)
+        {
+            $this->setToken($pureToken);
+        }
  
     }
  
@@ -44,52 +49,31 @@ class Token extends GemToken {
         return $this->response->success($token,1,'token generated successfully');
     }
  
-    public function validate():bool
-    {
-        $tokenString = $this->getPureTokenFromHeader();
-        if(!$tokenString)
-        {
-            return false;
-        }
-        return $this->verify($tokenString);
-    }
  
     public function renewToken(): JsonResponse
     {
-        //TODO::
-        //1: check if token ist kurz to ablauf
-        //2: if token hat genug zeit ; answer => token hat noch 5 minuten zeit ,
-        //3: run following code
-        $tokenString = $this->getPureTokenFromHeader();
-        if(!$tokenString)
-        {
-            return $this->response->forbidden('not token found in header');
-        }
-        if(!$this->verify($tokenString))
-        {
-            return $this->response->unauthorized($this->error);
-        }
-       
-        $tokenString = $this->renew($tokenString,$_ENV['TOKEN_VALIDATION_IN_SECONDS']);
+        $tokenString = $this->renew($_ENV['TOKEN_VALIDATION_IN_SECONDS']);
         if(!$tokenString)
         {
             return $this->response->internalError('please try again');
         }
-        return $this->response->success($tokenString,1,'successfully generated new token');
-    } 
+        return $this->response->success($tokenString,1,'successfully token renewd');
+    }
  
-    private function getPureTokenFromHeader():false|string
+ 
+    private function getPureTokenFromHeader():null|string
     {
         $token_in_header = $this->request->authorizationHeader;
         if(!is_string($token_in_header)   || strlen($token_in_header) < 30)
         {
-            return false;
+            return null;
         }
         $token_in_header = WebHelper::BearerTokenPurify($token_in_header);
         if(!$token_in_header)
         {
-            return false;
+            return null;
         }
         return $token_in_header;
-    }   
+    }
+ 
 }

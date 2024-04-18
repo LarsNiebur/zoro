@@ -52,7 +52,7 @@ class UserController extends BaseController
     public function loginByToken():JsonResponse
     {
         $tokenClass = new Token($this->request);
-        if(!$tokenClass->validate())
+        if(!$tokenClass->verify())
         {
             return $this->response->forbidden($tokenClass->error);
         }

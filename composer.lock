@@ -71,16 +71,16 @@
         },
         {
             "name": "gemvc/library",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secure73/gemvc.git",
-                "reference": "990f6978e26246601f96facfa34051c956c601b1"
+                "reference": "3aee72f9bb6e906679f7113a24c68e5632f4d2f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secure73/gemvc/zipball/990f6978e26246601f96facfa34051c956c601b1",
-                "reference": "990f6978e26246601f96facfa34051c956c601b1",
+                "url": "https://api.github.com/repos/secure73/gemvc/zipball/3aee72f9bb6e906679f7113a24c68e5632f4d2f4",
+                "reference": "3aee72f9bb6e906679f7113a24c68e5632f4d2f4",
                 "shasum": ""
             },
             "require": {
@@ -119,9 +119,9 @@
             "description": "core library of gemvc",
             "support": {
                 "issues": "https://github.com/secure73/gemvc/issues",
-                "source": "https://github.com/secure73/gemvc/tree/v2.8.0"
+                "source": "https://github.com/secure73/gemvc/tree/v2.8.1"
             },
-            "time": "2024-04-16T22:10:25+00:00"
+            "time": "2024-04-18T12:04:32+00:00"
         },
         {
             "name": "graham-campbell/result-type",

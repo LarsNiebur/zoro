@@ -40,9 +40,5 @@ class Bootstrap {
         $segments = explode('/',$this->request->requestedUrl);
         $this->requested_service = ucfirst($segments[$_ENV["SERVICE_IN_URL_SECTION"]]);
         $this->requested_method = $segments[$_ENV["METHOD_IN_URL_SECTION"]];
-    }
-
-
-
-    
+    }    
 }
